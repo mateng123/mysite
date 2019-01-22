@@ -17,7 +17,7 @@ from .base import *
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DATABASES_PASSWORD']
+SECRET_KEY = '36%w)c4z08_wgiqv#9b)y+y_d-o1k$aon@wom9_vqh26i=2&*k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,13 +28,12 @@ ALLOWED_HOSTS = []
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-DATABASES_PASSWORD = os.environ['DATABASES_PASSWORD']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysite_db',
         'USER': 'mateng',
-        'PASSWORD': DATABASES_PASSWORD,
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -45,6 +44,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = '498974493@qq.com'
-EMAIL_HOST_PASSWORD = 'qokaehrinmcebijc' #授权码
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD'] #授权码
 EMAIL_SUBJECT_PREFIX = '[马腾的博客]'
 EMAIL_USE_TLS = True #与SMTP服务器通信时，是否启动TLS连接（安全连接）
