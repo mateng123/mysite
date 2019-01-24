@@ -17,7 +17,7 @@ from .base import *
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '36%w)c4z08_wgiqv#9b)y+y_d-o1k$aon@wom9_vqh26i=2&*k'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,12 +28,13 @@ ALLOWED_HOSTS = []
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+DATABASES_PASSWORD = os.environ['DATABASES_PASSWORD']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysite_db',
         'USER': 'mateng',
-        'PASSWORD': '123456',
+        'PASSWORD': DATABASES_PASSWORD,
         'HOST': 'localhost',
         'PORT': '3306',
     }
